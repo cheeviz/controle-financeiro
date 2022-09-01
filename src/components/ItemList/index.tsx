@@ -9,7 +9,7 @@ export const ItemList = ({ itens, setItens }: any) => {
 
   return (
     <table className="table-auto w-full">
-      <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+      <thead className="text-xs font-semibold uppercase text-gray-400 bg-[#e2e2e2]">
         <tr>
           <th className="p-2">
             <div className="text-black font-semibold text-left">Descrição</div>
@@ -23,7 +23,7 @@ export const ItemList = ({ itens, setItens }: any) => {
           <th className="p-2"></th>
         </tr>
       </thead>
-      <tbody className="text-base divide-y bg-white divide-black">
+      <tbody className="text-base divide-y bg-[#e2e2e2] divide-black">
         {itens?.map((item: any, index: any) => (
           <Item key={index} item={item} onDelete={onDelete} />
         ))}

@@ -45,14 +45,16 @@ export const App = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <Header title="Controle Financeiro" />
-      <Resume entrada={entrada} saida={saida} total={total} />
-      <Form
-        handleAdd={handleAdd}
-        transactionList={transactionList}
-        setTransactionList={setTransactionList}
-      />
+      <div className="flex flex-col items-center justify-center">
+        <Resume entrada={entrada} saida={saida} total={total} />
+        <Form
+          handleAdd={handleAdd}
+          transactionList={transactionList}
+          setTransactionList={setTransactionList}
+        />
+      </div>
     </div>
   );
 };

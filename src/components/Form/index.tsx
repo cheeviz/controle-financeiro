@@ -39,31 +39,31 @@ export const Form = ({
 
   return (
     <>
-      <div className="w-[1000px] h-[100px] rounded-2xl bg-white ml-auto mr-auto">
-        <form className="flex items-center justify-center p-2">
-          <div className="flex flex-col mx-10">
-            <label className="text-black text-xl font-medium">Descrição</label>
+      <div className="w-[1000px] h-[100px] flex items-center justify-center bg-[#e2e2e2] ml-auto mr-auto">
+        <form className="flex items-center justify-center">
+          <div className="flex items-center justify-center">
             <input
-              className="text-black w-[250px] bg-gray-50 border-2 border-[#121212] text-xl font-medium h-8 rounded focus:outline-none"
+              className="text-black w-[250px] bg-transparent border-b-2 border-[#00af09] placeholder:text-[#636363] text-xl font-medium h-8 focus:outline-none"
               type="text"
               value={description}
+              placeholder="Descrição"
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
 
           <div className="flex flex-col mx-10">
-            <label className="text-black text-xl font-medium">Valor</label>
             <input
-              className="text-black w-[250px] bg-gray-50 border-2 border-[#121212] text-xl font-medium h-8 rounded focus:outline-none"
+              className="text-black w-[250px] bg-transparent border-b-2 border-[#00af09] placeholder:text-[#636363] text-xl font-medium h-8 focus:outline-none"
               type="number"
               value={amount}
+              placeholder="Valor"
               onChange={(e) => setAmount(e.target.valueAsNumber)}
             />
           </div>
 
-          <div className="flex mt-5 items-center">
+          <div className="flex items-center">
             <input
-              className="w-4 h-4 rounded-full"
+              className="w-4 h-4 rounded-full accent-blue-500"
               type="radio"
               id="r"
               name="group1"
@@ -74,7 +74,7 @@ export const Form = ({
               Entrada
             </label>
           </div>
-          <div className="flex mt-5 items-center">
+          <div className="flex items-center">
             <input
               className="w-4 h-4 focus:text-blue-500"
               type="radio"
@@ -84,7 +84,7 @@ export const Form = ({
             <label className="text-black font-medium text-xl p-2">Saida</label>
           </div>
 
-          <div className="flex items-center justify-center pt-5 ml-2">
+          <div className="flex items-center justify-center ml-2">
             <button
               className="text-black text-xl font-bold uppercase bg-green-500 w-32 h-10 rounded-2xl hover:bg-green-700 transition-colors"
               onClick={handleButton}
@@ -95,7 +95,7 @@ export const Form = ({
         </form>
       </div>
 
-      <div className="w-[1000px] mr-auto ml-auto p-2">
+      <div className="w-[1000px] h-[540px] mr-auto ml-auto m-2 overflow-y-auto">
         <ItemList itens={transactionList} setItens={setTransactionList}/>
       </div>
     </>
