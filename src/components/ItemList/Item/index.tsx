@@ -11,7 +11,7 @@ type ItemProps = {
   onDelete: (ID: number) => void;
 };
 
-export const Item = ({ item, onDelete }: ItemProps) => {
+export const Item = ({ item, onDelete }: any) => {
   return (
     <S.Tr>
       <S.Td>{item.description}</S.Td>
