@@ -37,37 +37,37 @@ export const Form = ({ handleAdd, transactionList, setTransactionList }: any) =>
   };
 
   return (
-    <S.Container>
+    <div>
       <ToastContainer />
-      <S.Box py="py-4">
-        <S.Form>
-          <S.FormBox gap="gap-5">
-            <S.InputText type="text" value={description} placeholder="Descrição" onChange={(e) => setDescription(e.target.value)} />
+      <div>
+        <div>
+          <div>
+            <input type="text" value={description} placeholder="Descrição" onChange={(e) => setDescription(e.target.value)} />
 
-            <S.InputText type="number" value={amount} placeholder="Valor" onChange={(e) => setAmount(e.target.valueAsNumber)} />
-          </S.FormBox>
+            <input type="number" value={amount} placeholder="Valor" onChange={(e) => setAmount(e.target.valueAsNumber)} />
+          </div>
 
-          <S.FormBox>
-            <S.InputBox>
-              <S.InputRadio type="radio" id="entrada" name="group1" defaultChecked onChange={() => setExpense(!isExpense)} />
-              <S.Text htmlFor="entrada">Entrada</S.Text>
-            </S.InputBox>
+          <div>
+            <div>
+              <input type="radio" id="entrada" name="group1" defaultChecked onChange={() => setExpense(!isExpense)} />
+              <label htmlFor="entrada">Entrada</label>
+            </div>
 
-            <S.InputBox>
-              <S.InputRadio type="radio" id="saida" name="group1" onChange={() => setExpense(!isExpense)} />
-              <S.Text htmlFor="saida">Saida</S.Text>
-            </S.InputBox>
-          </S.FormBox>
+            <div>
+              <input type="radio" id="saida" name="group1" onChange={() => setExpense(!isExpense)} />
+              <label htmlFor="saida">Saida</label>
+            </div>
+          </div>
 
-          <S.FormBox>
-            <S.Button onClick={handleButton}>Adicionar</S.Button>
-          </S.FormBox>
-        </S.Form>
-      </S.Box>
+          <div>
+            <button onClick={handleButton}>Adicionar</button>
+          </div>
+        </div>
+      </div>
 
-      <S.Box>
+      <div>
         <ItemList itens={transactionList} setItens={setTransactionList} />
-      </S.Box>
-    </S.Container>
+      </div>
+    </div>
   );
 };
