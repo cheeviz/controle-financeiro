@@ -29,15 +29,7 @@ export const Resume = ({ entrada, saida, total }: ResumeProps) => {
           />
         </S.Box>
         <S.Box>
-          <CardResume
-            title="Total"
-            Icon={CurrencyDollar}
-            bgColor={`${total < 0 ? "bg-red-500" : "bg-green-500"}`}
-            IconColor="text-white"
-            textColor="text-white"
-            titleColor="text-white"
-            value={total}
-          />
+          <CardResume title="Total" Icon={CurrencyDollar} IconColor="text-green-500" value={total} />
         </S.Box>
       </S.Wrapper>
     </S.Container>

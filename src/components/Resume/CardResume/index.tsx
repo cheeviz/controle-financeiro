@@ -10,14 +10,14 @@ type CardProps = {
   bgColor?: string;
 };
 
-export const CardResume = ({ title, Icon, value, titleColor, IconColor, textColor, bgColor }: CardProps) => {
+export const CardResume = ({ title, Icon, value, titleColor, IconColor, textColor }: CardProps) => {
   return (
-    <S.Container bgColor={bgColor}>
+    <S.Container>
       <S.Wrapper>
-        <S.Title titleColor={titleColor}>{title}</S.Title>
+        <S.Title>{title}</S.Title>
         <Icon className={`${IconColor}`} size={32} />
       </S.Wrapper>
-      <S.Paragrafo textColor={textColor}>R$ {value}</S.Paragrafo>
+      <S.Paragrafo>R$ {value}</S.Paragrafo>
     </S.Container>
   );
 };
