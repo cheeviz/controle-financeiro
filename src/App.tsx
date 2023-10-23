@@ -5,36 +5,29 @@ import { Resume } from "./components/Resume";
 
 export const App = () => {
   const data = localStorage.getItem("transactions");
-  const [transactionList, setTransactionList] = useState(
-    data ? JSON.parse(data) : []
-  );
+  const [transactionList, setTransactionList] = useState(data ? JSON.parse(data) : []);
 
-  const [saida, setSaida] = useState(0);
-  const [entrada, setEntrada] = useState(0);
-  const [total, setTotal] = useState(0);
+  const [valorSaida, setSaida] = useState(0);
+  const [valorEntrada, setEntrada] = useState(0);
+  const [saldo, setSaldo] = useState(0);
 
   useEffect(() => {
-    const amountSaida = transactionList
-      .filter((item: any) => item.expense)
-      .map((transaction: any) => Number(transaction.amount));
+    const amountEntrada = transactionList.filter((item: any) => !item.expense).map((transaction: any) => Number(transaction.amount));
+    const entrada = amountEntrada.reduce((acc: any, cur: any) => acc + cur, 0).toFixed(2);
 
-    const amountEntrada = transactionList
-      .filter((item: any) => !item.expense)
-      .map((transaction: any) => Number(transaction.amount));
-
-    const saida = amountSaida
-      .reduce((acc: any, cur: any) => acc + cur, 0)
-      .toFixed(2);
-
-    const entrada = amountEntrada
-      .reduce((acc: any, cur: any) => acc + cur, 0)
-      .toFixed(2);
+    const amountSaida = transactionList.filter((item: any) => item.expense).map((transaction: any) => Number(transaction.amount));
+    const saida = amountSaida.reduce((acc: any, cur: any) => acc + cur, 0).toFixed(2);
 
     const total = Math.abs(entrada - saida).toFixed(2);
 
-    setEntrada(entrada);
-    setSaida(saida);
-    setTotal(Number(total));
+    setEntrada(Number(entrada));
+    setSaida(Number(saida));
+
+    if (saida > entrada) {
+      setSaldo(Number(-total));
+    } else {
+      setSaldo(Number(total));
+    }
   }, [transactionList]);
 
   const handleAdd = (transaction: any) => {
@@ -45,15 +38,11 @@ export const App = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <Header title="Controle Financeiro" />
-      <div className="flex flex-col items-center justify-center">
-        <Resume entrada={entrada} saida={saida} total={total} />
-        <Form
-          handleAdd={handleAdd}
-          transactionList={transactionList}
-          setTransactionList={setTransactionList}
-        />
+      <div className="flex flex-col items-center justify-center pt-20">
+        <Resume entrada={valorEntrada} saida={valorSaida} total={saldo} />
+        <Form handleAdd={handleAdd} transactionList={transactionList} setTransactionList={setTransactionList} />
       </div>
     </div>
   );

@@ -1,15 +1,7 @@
 import { useState } from "react";
 import { ItemList } from "../ItemList";
 
-interface AmountProps {
-  amount: number | undefined;
-}
-
-export const Form = ({
-  handleAdd,
-  transactionList,
-  setTransactionList,
-}: any) => {
+export const Form = ({ handleAdd, transactionList, setTransactionList }: any) => {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState<number>();
   const [isExpense, setExpense] = useState(false);
@@ -33,17 +25,15 @@ export const Form = ({
     };
 
     handleAdd(transaction);
-
-    console.log(transaction);
   };
 
   return (
-    <>
-      <div className="w-[1000px] h-[100px] flex items-center justify-center bg-[#e2e2e2] ml-auto mr-auto">
+    <div className="w-[1000px] flex flex-col items-center justify-center">
+      <div className="w-full bg-white py-4">
         <form className="flex items-center justify-center">
           <div className="flex items-center justify-center">
             <input
-              className="text-black w-[250px] bg-transparent border-b-2 border-[#00af09] placeholder:text-[#636363] text-xl font-medium h-8 focus:outline-none"
+              className="text-black w-[250px] bg-transparent border-b-2 border-[#37bbf8] placeholder:text-[#636363] text-xl font-medium h-8 focus:outline-none"
               type="text"
               value={description}
               placeholder="Descrição"
@@ -51,9 +41,9 @@ export const Form = ({
             />
           </div>
 
-          <div className="flex flex-col mx-10">
+          <div className="flex flex-col mx-10 ">
             <input
-              className="text-black w-[250px] bg-transparent border-b-2 border-[#00af09] placeholder:text-[#636363] text-xl font-medium h-8 focus:outline-none"
+              className="text-black w-[250px] bg-transparent border-b-2 border-[#37bbf8] placeholder:text-[#636363] text-xl font-medium h-8 focus:outline-none"
               type="number"
               value={amount}
               placeholder="Valor"
@@ -63,30 +53,28 @@ export const Form = ({
 
           <div className="flex items-center">
             <input
-              className="w-4 h-4 rounded-full accent-blue-500"
+              className="w-4 h-4 rounded-full accent-blue-500 cursor-pointer"
               type="radio"
-              id="r"
+              id="entrada"
               name="group1"
               defaultChecked
               onChange={() => setExpense(!isExpense)}
             />
-            <label className="text-black font-medium text-xl p-2">
+            <label className="text-black font-medium text-xl p-2 cursor-pointer" htmlFor="entrada">
               Entrada
             </label>
           </div>
+
           <div className="flex items-center">
-            <input
-              className="w-4 h-4 focus:text-blue-500"
-              type="radio"
-              name="group1"
-              onChange={() => setExpense(!isExpense)}
-            />
-            <label className="text-black font-medium text-xl p-2">Saida</label>
+            <input className="w-4 h-4 accent-blue-500 cursor-pointer" type="radio" id="saida" name="group1" onChange={() => setExpense(!isExpense)} />
+            <label className="text-black font-medium text-xl p-2 cursor-pointer" htmlFor="saida">
+              Saida
+            </label>
           </div>
 
           <div className="flex items-center justify-center ml-2">
             <button
-              className="text-black text-xl font-bold uppercase bg-green-500 w-32 h-10 rounded-2xl hover:bg-green-700 transition-colors"
+              className="text-black text-xl font-bold uppercase bg-[#37bbf8] w-32 h-10 rounded-2xl hover:bg-[#3fa1cf] transition-colors"
               onClick={handleButton}
             >
               Adicionar
@@ -95,9 +83,9 @@ export const Form = ({
         </form>
       </div>
 
-      <div className="w-[1000px] h-[540px] mr-auto ml-auto m-2 overflow-y-auto">
-        <ItemList itens={transactionList} setItens={setTransactionList}/>
+      <div className="w-full mt-2 overflow-y-auto">
+        <ItemList itens={transactionList} setItens={setTransactionList} />
       </div>
-    </>
+    </div>
   );
 };
