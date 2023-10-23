@@ -17,9 +17,9 @@ export const Item = ({ item, onDelete }: ItemProps) => {
       <S.Td>{item.description}</S.Td>
       <S.Td>
         {item.expense ? (
-          <S.Title textColor="text-red-500">- R$ {item.amount}</S.Title>
+          <S.Title className="text-red-500">- R$ {item.amount}</S.Title>
         ) : (
-          <S.Title textColor="text-green-500">+ R$ {item.amount}</S.Title>
+          <S.Title className="text-green-500">+ R$ {item.amount}</S.Title>
         )}
       </S.Td>
       <S.Td>
