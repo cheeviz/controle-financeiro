@@ -13,29 +13,29 @@ type ItemProps = {
 
 export const Item = ({ item, onDelete }: any) => {
   return (
-    <S.Tr>
-      <S.Td>{item.description}</S.Td>
-      <S.Td>
+    <tr>
+      <td>{item.description}</td>
+      <td>
         {item.expense ? (
-          <S.Title className="text-red-500">- R$ {item.amount}</S.Title>
+          <h1 className="text-red-500">- R$ {item.amount}</h1>
         ) : (
-          <S.Title className="text-green-500">+ R$ {item.amount}</S.Title>
+          <h1 className="text-green-500">+ R$ {item.amount}</h1>
         )}
-      </S.Td>
-      <S.Td>
+      </td>
+      <td>
         {item.expense ? (
           <ArrowDown className="text-black border-2 border-red-500 rounded-full" size={32} />
         ) : (
           <ArrowUp className="text-black border-2 border-green-500 rounded-full" size={32} />
         )}
-      </S.Td>
-      <S.Td>
+      </td>
+      <td>
         <Trash
           className="text-red-500 focus:outline-none hover:scale-110 transition-transform cursor-pointer"
           onClick={() => onDelete(item.id)}
           size={32}
         />
-      </S.Td>
-    </S.Tr>
+      </td>
+    </tr>
   );
 };
