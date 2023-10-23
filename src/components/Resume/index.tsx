@@ -13,13 +13,31 @@ export const Resume = ({ entrada, saida, total }: ResumeProps) => {
     <S.Container>
       <S.Wrapper>
         <S.Box>
-          <CardResume title="Entrada" Icon={ArrowUp} value={entrada} />
+          <CardResume
+            title="Entrada"
+            Icon={ArrowUp}
+            IconColor="text-green-500 border-2 border-green-500 rounded-2xl"
+            value={entrada}
+          />
         </S.Box>
         <S.Box>
-          <CardResume title="Saida" Icon={ArrowDown} value={saida} />
+          <CardResume
+            title="Saida"
+            Icon={ArrowDown}
+            IconColor="text-red-500 border-2 border-red-500 rounded-2xl"
+            value={saida}
+          />
         </S.Box>
         <S.Box>
-          <CardResume title="Total" Icon={CurrencyDollar} value={total} className={`${total < 0 ? 'text-red-500'  : 'text-green-500'}`}/>
+          <CardResume
+            title="Total"
+            Icon={CurrencyDollar}
+            bgColor={`${total < 0 ? "bg-red-500" : "bg-green-500"}`}
+            IconColor="text-white"
+            textColor="text-white"
+            titleColor="text-white"
+            value={total}
+          />
         </S.Box>
       </S.Wrapper>
     </S.Container>

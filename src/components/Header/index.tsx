@@ -1,7 +1,13 @@
+import * as S from "./style";
+
 type HeaderProps = {
   title: string;
 };
 
 export const Header = ({ title }: HeaderProps) => {
-  return <div className="absolute bg-[#37bbf8] w-full h-64 -z-40" />;
+  return (
+    <S.Container>
+      <S.Title>{title}</S.Title>
+    </S.Container>
+  );
 };

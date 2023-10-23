@@ -12,18 +12,22 @@ export const App = () => {
   const [saldo, setSaldo] = useState(0);
 
   useEffect(() => {
-    const amountEntrada = transactionList.filter((item: any) => !item.expense).map((transaction: any) => Number(transaction.amount));
-    const entrada = amountEntrada.reduce((acc: any, cur: any) => acc + cur, 0).toFixed(2);
+    const amountEntrada = transactionList
+      .filter((item: any) => !item.expense)
+      .map((transaction: any) => Number(transaction.amount));
+    const entrada = Number(amountEntrada.reduce((acc: any, cur: any) => acc + cur, 0).toFixed(2));
 
-    const amountSaida = transactionList.filter((item: any) => item.expense).map((transaction: any) => Number(transaction.amount));
-    const saida = amountSaida.reduce((acc: any, cur: any) => acc + cur, 0).toFixed(2);
+    const amountSaida = transactionList
+      .filter((item: any) => item.expense)
+      .map((transaction: any) => Number(transaction.amount));
+    const saida = Number(amountSaida.reduce((acc: any, cur: any) => acc + cur, 0).toFixed(2));
 
     const total = Math.abs(entrada - saida).toFixed(2);
 
     setEntrada(Number(entrada));
     setSaida(Number(saida));
 
-    if (saida > entrada) {
+    if (entrada < saida) {
       setSaldo(Number(-total));
     } else {
       setSaldo(Number(total));
@@ -38,12 +42,12 @@ export const App = () => {
   };
 
   return (
-    <div>
-      <Header title="Controle Financeiro" />
-      <div className="flex flex-col items-center justify-center pt-20">
+    <>
+      <Header title="Finances" />
+      <div className="flex flex-col items-center justify-center pt-44">
         <Resume entrada={valorEntrada} saida={valorSaida} total={saldo} />
         <Form handleAdd={handleAdd} transactionList={transactionList} setTransactionList={setTransactionList} />
       </div>
-    </div>
+    </>
   );
 };
