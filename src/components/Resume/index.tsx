@@ -1,6 +1,5 @@
 import { ArrowDown, ArrowUp, CurrencyDollar } from "phosphor-react";
 import { CardResume } from "./CardResume";
-import * as S from "./style";
 
 type ResumeProps = {
   entrada: number;
@@ -10,28 +9,18 @@ type ResumeProps = {
 
 export const Resume = ({ entrada, saida, total }: ResumeProps) => {
   return (
-    <S.Container>
-      <S.Wrapper>
-        <S.Box>
-          <CardResume
-            title="Entrada"
-            Icon={ArrowUp}
-            IconColor="text-green-500 border-2 border-green-500 rounded-2xl"
-            value={entrada}
-          />
-        </S.Box>
-        <S.Box>
-          <CardResume
-            title="Saida"
-            Icon={ArrowDown}
-            IconColor="text-red-500 border-2 border-red-500 rounded-2xl"
-            value={saida}
-          />
-        </S.Box>
-        <S.Box>
-          <CardResume title="Total" Icon={CurrencyDollar} IconColor="text-green-500" value={total} />
-        </S.Box>
-      </S.Wrapper>
-    </S.Container>
+    <div className="w-[1000px] ml-auto mr-auto">
+      <div className="flex items-center gap-5 p-2 justify-center">
+        <div className="block">
+          <CardResume title="Entrada" Icon={ArrowUp} value={entrada} />
+        </div>
+        <div className="block">
+          <CardResume title="Saida" Icon={ArrowDown} value={saida} />
+        </div>
+        <div className="block">
+          <CardResume title="Total" Icon={CurrencyDollar} value={total} />
+        </div>
+      </div>
+    </div>
   );
 };

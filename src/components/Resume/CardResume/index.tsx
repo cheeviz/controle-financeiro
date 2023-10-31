@@ -1,23 +1,17 @@
-import * as S from "./style";
-
 type CardProps = {
   title: string;
   Icon: any;
   value: number;
-  titleColor?: string;
-  IconColor?: string;
-  textColor?: string;
-  bgColor?: string;
 };
 
-export const CardResume = ({ title, Icon, value, titleColor, IconColor, textColor }: CardProps) => {
+export const CardResume = ({ title, Icon, value }: CardProps) => {
   return (
-    <S.Container>
-      <S.Wrapper>
-        <S.Title>{title}</S.Title>
-        <Icon className={`${IconColor}`} size={32} />
-      </S.Wrapper>
-      <S.Paragrafo>R$ {value}</S.Paragrafo>
-    </S.Container>
+    <div className="w-[320px] h-[120px] flex gap-2 flex-col items-center justify-center rounded bg-white drop-shadow-lg">
+      <div className="w-full flex items-center gap-2 justify-between px-5">
+        <h1 className="text-black text-center font-medium text-2xl uppercase">{title}</h1>
+        <Icon className="text-black" size={32} />
+      </div>
+      <p className="text-black text-center text-3xl font-bold p-2">R$ {value}</p>
+    </div>
   );
 };

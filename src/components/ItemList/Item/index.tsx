@@ -1,5 +1,4 @@
 import { ArrowDown, ArrowUp, Trash } from "phosphor-react";
-import * as S from "./style";
 
 type ItemProps = {
   item: {
@@ -11,10 +10,10 @@ type ItemProps = {
   onDelete: (ID: number) => void;
 };
 
-export const Item = ({ item, onDelete }: any) => {
+export const Item = ({ item, onDelete }: ItemProps) => {
   return (
     <tr>
-      <td>{item.description}</td>
+      <td className="text-black">{item.description}</td>
       <td>
         {item.expense ? (
           <h1 className="text-red-500">- R$ {item.amount}</h1>
