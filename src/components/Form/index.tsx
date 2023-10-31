@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export const Form = ({ handleAdd, transactionList, setTransactionList }: any) => {
   const [description, setDescription] = useState("");
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState<any>(0 || "Valor");
   const [isExpense, setExpense] = useState(false);
 
   const generateID = () => Math.round(Math.random() * 1000);
@@ -30,16 +30,16 @@ export const Form = ({ handleAdd, transactionList, setTransactionList }: any) =>
       handleAdd(transaction);
 
       setDescription("");
-      setAmount(0);
+      setAmount("valor");
     }
   };
 
   return (
-    <div className="w-[1000px] flex flex-col items-center justify-center">
+    <div className="w-[25rem] md:w-[62.5rem] flex flex-col items-center justify-center mb-5">
       <ToastContainer />
-      <div className="w-full bg-white mt-2 drop-shadow-xl py-3">
-        <div className="flex items-center justify-center gap-5">
-          <div className="flex items-center gap-5">
+      <div className="w-full bg-white mt-5 drop-shadow-xl py-5">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-5">
+          <div className="flex flex-col md:flex-row items-center gap-5">
             <input
               className="text-black w-[250px] bg-transparent border-b-2 border-[#37bbf8] placeholder:text-[#636363] text-xl font-medium h-8 focus:outline-none"
               type="text"

@@ -8,13 +8,13 @@ export const ItemList = ({ itens, setItens }: any) => {
   };
 
   return (
-    <table className="w-full divide-y divide-black">
+    <table className="w-full overflow-y-auto divide-y divide-black">
       <thead className="text-base bg-white">
         <tr>
-          <th className="text-left text-black">Descrição</th>
-          <th className="text-left text-black">Valor</th>
-          <th className="text-left text-black">Tipo</th>
-          <th className="text-left"></th>
+          <th className="text-left text-black p-2">Descrição</th>
+          <th className="text-left text-black p-2">Valor</th>
+          <th className="text-left text-black p-2">Tipo</th>
+          <th className="text-left text-black p-2">Ação</th>
         </tr>
       </thead>
       <tbody className="text-base divide-y bg-white divide-black">

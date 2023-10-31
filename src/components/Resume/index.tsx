@@ -9,8 +9,8 @@ type ResumeProps = {
 
 export const Resume = ({ entrada, saida, total }: ResumeProps) => {
   return (
-    <div className="w-[1000px] ml-auto mr-auto">
-      <div className="flex items-center gap-5 p-2 justify-center">
+    <div className="w-full">
+      <div className="flex flex-col md:flex-row items-center gap-5 p-2 justify-center">
         <div className="block">
           <CardResume title="Entrada" Icon={ArrowUp} value={entrada} />
         </div>
